@@ -3,35 +3,58 @@ package org.itstep.step03;
 import org.itstep.step02.Pair;
 
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
-public class Pairs<T, D> implements Iterable<Pair<T, D>> {
+public class Pairs<K, V> implements Iterable<Pair<K, V>> {
+    public final Pair<K,V>[]pairs;
+    private static final int CAPACITY=10;
+    private int idx;
     public Pairs() {
+        pairs=new Pair[CAPACITY];
     }
 
-    public boolean addPair(T first, D second) {
-        return true;
+    public boolean addPair(K first, V second) {
+if(idx<CAPACITY){
+    pairs[idx]=new Pair<>(first,second);
+    idx++;
+    return true;
+}
+return false;
     }
 
     @Override
-    public Iterator<Pair<T, D>> iterator() {
+    public Iterator<Pair<K, V>> iterator() {
         return new PairIterator();
     }
 
-    private class PairIterator implements Iterator<Pair<T, D>> {
-
+    private class PairIterator implements Iterator<Pair<K, V>> {
+        private int i;
+private boolean callNext;
         @Override
         public boolean hasNext() {
-            throw new UnsupportedOperationException();
+            return i<idx;
         }
 
         @Override
-        public Pair<T, D> next() {
-            throw new UnsupportedOperationException();
+        public Pair<K, V> next() {
+            callNext=true;
+            if(i>=idx)
+            {
+               throw new NoSuchElementException();
+            } return pairs[i++];
         }
 
         @Override
         public void remove() {
-            throw new UnsupportedOperationException();
+            if(!callNext)
+            {
+                throw new IllegalStateException();
+            }
+          for(int j=i;j<idx;j++){
+              pairs[j-1]=pairs[j];
+          }
+          idx--;
+          callNext=false;
         }
     }
 }

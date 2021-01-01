@@ -44,7 +44,7 @@ public class PairsDriver {
         System.out.println();
 
         /* Теперь добавьте что-то еще и проверьте, что это было добавлено. */
-        pairs.addPair("S", 34454);
+        pairs.addPair("B", 10);
 
         for (Pair<String, Integer> pair : pairs) {
             System.out.println(pair.toString());

@@ -13,6 +13,7 @@ class PairsTest {
 
     @Test
     public void testPairsAddThenIterateWithinCapacity() {
+        //fail("Раскомментируйте тест после реализации класса Pairs");
         Pairs<String, Integer> pairs = new Pairs<String, Integer>();
         for (int i = 0; i < 10; i++) {
             pairs.addPair("A" + i, i);
@@ -28,6 +29,7 @@ class PairsTest {
 
     @Test
     public void testPairsAddBeyondCapacity() {
+        //fail("Раскомментируйте тест после реализации класса Pairs");
         Pairs<String, Integer> pairs = new Pairs<String, Integer>();
         for (int i = 0; i < 10; i++) {
             assertTrue(pairs.addPair("A" + i, i));
@@ -46,6 +48,7 @@ class PairsTest {
 
     @Test
     public void testPairsRemove() {
+        //fail("Раскомментируйте тест после реализации класса Pairs");
         Pairs<String, Integer> pairs = new Pairs<String, Integer>();
         for (int i = 0; i < 10; i++) {
             assertTrue(pairs.addPair("A" + i, i));
@@ -72,6 +75,7 @@ class PairsTest {
 
     @Test
     public void testPairsDoubleRemoveThrowsException() {
+        //fail("Раскомментируйте тест после реализации класса Pairs");
         Pairs<String, Integer> pairs = new Pairs<String, Integer>();
         for (int i = 0; i < 15; i++) {
             pairs.addPair("A" + i, i);
@@ -87,6 +91,7 @@ class PairsTest {
 
     @Test
     public void testPairsExceptionIfNextCalledWithNoMoreElements() {
+        //fail("Раскомментируйте тест после реализации класса Pairs");
         Pairs<String, Integer> pairs = new Pairs<String, Integer>();
 
         pairs.addPair("A", 1);

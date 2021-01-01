@@ -1,20 +1,20 @@
 package org.itstep.step02;
 
-public class Pair<T, D> {
+public class Pair<F, S> {
 
-    private final T first;
-    private final D second;
+    private final F first;
+    private final S second;
 
-    public Pair(T first, D second) {
+    public Pair(F first, S second) {
         this.first = first;
         this.second = second;
     }
 
-    public T getFirst() {
+    public F getFirst() {
         return first;
     }
 
-    public D getSecond() {
+    public S getSecond() {
         return second;
     }
 

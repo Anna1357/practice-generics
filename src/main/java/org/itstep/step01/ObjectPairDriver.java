@@ -18,9 +18,9 @@ public class ObjectPairDriver {
         ObjectPair[] stadiums = new ObjectPair[3];
         stadiums[0] = new ObjectPair("Bridgeforth Stadium", 25000);
         stadiums[1] = new ObjectPair("Michigan Stadium", 109901);
-        stadiums[2] = new ObjectPair("Lane Stadium", 66.233);
+        stadiums[2] = new ObjectPair("Lane Stadium", 66233);
 
-//Бонусный вопрос: А почему бы ей не компилироваться, все адексатно написано, тип массива соответствует типу объекта
+//Бонусный вопрос:Благодаря приведению типов
         System.out.println(largestStadium(stadiums));
     }
 
@@ -31,13 +31,15 @@ public class ObjectPairDriver {
      * @return Название стадиона с наибольшей вместимостью
      */
     public static String largestStadium(ObjectPair[] stadiums) {
-        ObjectPair largest = stadiums[0];
-        for (int i = 0; i < stadiums.length; i++) {
-            if(Double.valueOf(stadiums[i].getSecond().toString())>Double.valueOf(largest.getSecond().toString())){
-                largest=stadiums[i];
+        int max = (int)stadiums[0].getSecond();
+        int idx=0;
+        for (int i = 1; i < stadiums.length; i++) {
+            if((int)stadiums[i].getSecond()>max){
+               idx=i;
+               max=(int)stadiums[i].getSecond();
             }
         }
-        return largest.getFirst().toString();
+        return stadiums[idx].getFirst().toString();
     }
 
 }
